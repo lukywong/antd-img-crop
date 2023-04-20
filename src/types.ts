@@ -45,6 +45,7 @@ export type ImgCropProps = {
   modalWidth?: number | string;
   modalOk?: string;
   modalCancel?: string;
+  ignoreModalCancel?: boolean;
   onModalOk?: (value: BeforeUploadReturnType) => void;
   onModalCancel?: () => void;
   modalProps?: Omit<

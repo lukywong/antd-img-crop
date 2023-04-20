@@ -62,6 +62,7 @@ const ImgCrop = forwardRef<CropperRef, ImgCropProps>((props, cropperRef) => {
 
     beforeCrop,
     children,
+    ignoreModalCancel
   } = props;
 
   /**
@@ -217,8 +218,7 @@ const ImgCrop = forwardRef<CropperRef, ImgCropProps>((props, cropperRef) => {
         onCancel.current = () => {
           setModalImage('');
           easyCropRef.current!.onReset();
-
-          resolve(AntUpload.LIST_IGNORE);
+          if (!ignoreModalCancel) resolve(AntUpload.LIST_IGNORE);
           cb.current.onModalCancel?.();
         };
 
